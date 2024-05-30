@@ -15,19 +15,25 @@
     <body>
         <h1>Test</h1>
 
-        <div class="center">
-            <button class="button" id="load" onclick=loadClick()> Lua Out </button>
+        <div class="buttonContainer">
+            <div class="center">
+                <button class="button" id="load" onclick=loadClick()> Lua Out </button>
+            </div>
         </div>
-
             <!-- <input type="text" id="textInput" name="textInput" placeholder="Hello World!"> -->
 
-        <div class="line">
-            <div id="col" class="column"></div>
-            
-            <textarea id="textInput" rows="0" cols="0" name="textInput" placeholder="Hello World!"></textarea>
+        <div class="center">
+            <div class="line">
+                <div id="sidebar">
+                    <span></span>
+                </div>
+                
+                <textarea id="textInput" name="textInput" placeholder="Hello World!"></textarea>
+                <button id="submitButton" onclick=submit()><b> Convert To Lua </b></button>
+            </div>
         </div>
         
-
+        
         <p id="lil"> Lil guy </p>
     </body>
 </html>
