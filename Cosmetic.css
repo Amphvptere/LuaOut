@@ -1,5 +1,8 @@
 :root {
-    --luaBlue: rgba(0, 0, 127, 1)
+    --luaBlue: rgb(0, 0, 127);
+    --luaDark: rgb(26, 26, 56);
+    --luaDark2: rgb(47, 47, 110);
+    --luaDark3: rgb(43, 43, 95);
 }
 
 html, body {
@@ -8,49 +11,44 @@ html, body {
 
 body {
     background-color: rgb(0, 0, 0);
-    /* background-image: url("./Media/lua512.png");
-    background-size: 100px; */
     color: rgb(255, 255, 255);
     font-family: 'Trebuchet MS';
 }
 
 h1 {
     text-align: center;
-    /* border-color: rgb(255, 255, 255); */
 }
 
-p#colItem {
-    font-size: 12px;
-    padding: 1px;
-    text-align: right;
+/* Main Containers */
+.buttonContainer {
+    display: auto;
+    height: 100%;
+    width: 100%;
 }
-
 .center {
     align-items: center;
     display: flex;
     justify-content: center;
     height: 100%;
-    width: 100%;
+    width: auto;
 }
-.line {
-    display:inline-flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-}
-.column {
-    float:left;
-    width:20px;
+.line { /* contains textarea */
+    display: none;
+    gap: 10px;
 
-    background-color: white;
-    color: black;
+    font-family: monospace;
+    line-height: 21px;
 
-    padding-left: 10px;
-    padding-bottom: 0px;
-    padding-top: 0px
+    background: var(--luaDark);
+    border-radius: 2px;
+    padding: 20px 10px;
+    height: 80%;
+    width: 80%;
+
+    overflow-y: auto;
 }
 
+/* Button */
 .button {
     display: flex;
     padding: 12px 25px;
@@ -69,18 +67,49 @@ p#colItem {
     background-color: rgb(0, 0, 135);
     cursor:pointer;
 }
-/* .button:active {
-    cursor: pointer;
-} */
 
-#textInput {
-    display:none;
-    /* width: 100%;
-    height: 100%; */
-    resize: none;
+#submitButton {
+    display: block;
+    align-self: flex-end;
+    background: var(--luaDark2);
+    color: white;
+
+    border: none;
+    padding: 10px 25px;
 }
-#sidebar {
-    display:auto;
-    resize:none;
+#submitButton:hover {
+    background: var(--luaDark3);
+}
+
+/* Text Input Box (textarea | span) */
+#textInput { /* textarea id */
+    height: 80%;
+    width: 100%;
+
+    line-height: 21px;
+    overflow-y: hidden;
+
+    padding: 0;
+    border: 0;
+    background: var(--luaDark);
+    color: #FFF;
+
+    min-width: 500px;
+    outline: none;
+    resize: none;
+} 
+#sidebar { /* numbers the lines */
+    width: 20px;
+    text-align: right;
+    /* height: 9999px; */
+}
+#sidebar span {
+    counter-increment: linenumber;
+}
+#sidebar span::before {
+    content: counter(linenumber);
+    display: block;
+    background-color: var(--luaDark);
+    color: rgb(100, 95, 146);
 }
 
