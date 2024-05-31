@@ -4,7 +4,7 @@ let specChar = ['\n']
 let lastProcessed = []
 
 function processString(string) {
-    lastProcessed.push("--[ String to lua generating ]--")
+    lastProcessed.push("--[ String to lua generating ]--\n ")
 
     let lineSep = string.split("\n")
     lineSep.forEach((sig) => {
@@ -12,12 +12,22 @@ function processString(string) {
         // console.log(`Pushed ${sig}`)
     })
 
-    lastProcessed.push("--[ Finished Generating ]--")
+    lastProcessed.push("\n--[ Finished Generating ]--")
 
-    let returnString = ""
-    lastProcessed.forEach((line) => {
-        returnString.concat(line)
-    })
+    let returnString = new String
+    for (i = 0; i < lastProcessed.length; i++) {
+        let nextCnct = lastProcessed[i]
+        if (i != lastProcessed.length) {
+            nextCnct += '\n'
+        }
+
+        // console.log(nextCnct)
+
+        returnString += nextCnct
+        console.log(returnString)
+    }
+    // console.log(returnString)
+    return returnString
 }
 
 function loadEditor() {
@@ -47,8 +57,10 @@ function loadEditor() {
     })
 
     // Show the textarea once finished setting up
+    
     document.querySelector(".line").style.display = "inline-flex";
     textInput.style.display = "inline-flex";
+    document.querySelector(".center2").style.display = "flex";
 }
 
 function loadClick() {
@@ -66,6 +78,8 @@ function submit() {
     console.log(`// UNFORMATED: \n\n${textValue}\n\n // END`)
     let newString = processString(textValue)
     console.log("Finished processing.")
+
+    // console.log(newString)
 }
 
 // var blob = new Blob(["Hello world!"], { type: "text/plain;charset=utf-8"});
