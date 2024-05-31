@@ -1,22 +1,27 @@
 :root {
-    --luaBlue: rgb(0, 0, 127);
+    /* --luaBlue: rgb(0, 0, 127); */
     --luaDark: rgb(26, 26, 56);
     --luaDark2: rgb(47, 47, 110);
     --luaDark3: rgb(43, 43, 95);
 }
 
 html, body {
-    height:90%;
+    height: 90%;
+    margin: 0;
 }
 
 body {
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(15, 15, 33);
     color: rgb(255, 255, 255);
     font-family: 'Trebuchet MS';
 }
 
 h1 {
     text-align: center;
+    padding: 10px;
+    background-color: var(--luaDark);
+    margin: 10px 40% 10px 40%;
+    border-radius: 10px;
 }
 
 /* Main Containers */
@@ -24,6 +29,7 @@ h1 {
     display: auto;
     height: 100%;
     width: 100%;
+    padding-top: 0px;
 }
 .center {
     align-items: center;
@@ -31,6 +37,19 @@ h1 {
     justify-content: center;
     height: 100%;
     width: auto;
+    border: var(--luaDark2);
+    border-width: 2px;
+}
+.center2 {
+    align-items: center;
+    display: none;
+    justify-content: center;
+
+    height: 100%;
+    width: auto;
+
+    border: var(--luaDark2);
+    border-width: 2px;
 }
 .line { /* contains textarea */
     display: none;
@@ -40,7 +59,7 @@ h1 {
     line-height: 21px;
 
     background: var(--luaDark);
-    border-radius: 2px;
+    border-radius: 10px;
     padding: 20px 10px;
     height: 80%;
     width: 80%;
@@ -51,34 +70,36 @@ h1 {
 /* Button */
 .button {
     display: flex;
-    padding: 12px 25px;
+    padding: 48px 100px;
     vertical-align: center;
 
-    background-color: var(--luaBlue);
-    border: 2px solid var(--luaBlue);
+    background-color: var(--luaDark2);
+    border: none;
+    border-radius: 10px;
     border-radius: 5px;
     
     color: white;
-    font-size: 100px;
+    font-size: 50px;
     text-align: center;
     justify-content: center;
 }  
 .button:hover {
-    background-color: rgb(0, 0, 135);
+    background-color: var(--luaDark3);
     cursor:pointer;
 }
 
 #submitButton {
-    display: block;
-    align-self: flex-end;
+    align-self:flex-end;
     background: var(--luaDark2);
     color: white;
 
     border: none;
+    border-radius: 10px;
     padding: 10px 25px;
 }
 #submitButton:hover {
     background: var(--luaDark3);
+    cursor: pointer;
 }
 
 /* Text Input Box (textarea | span) */
